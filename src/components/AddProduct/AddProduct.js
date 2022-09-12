@@ -1,6 +1,9 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 
 const AddProduct = () => {
+    const [user] = useAuthState(auth)
     const handleSubmit = async (event) => {
         event.preventDefault()
         const name = event.target.name.value;
@@ -10,10 +13,15 @@ const AddProduct = () => {
         fetch('http://localhost:5000/products', {
             method: 'POST',
             body: JSON.stringify({ name, price, image }),
-            headers: { 'Content-type': 'application/json' },
+            headers: {
+                'authorization': `${user.email} ${localStorage.getItem('token')}`,
+                'Content-type': 'application/json',
+            },
         })
             .then((response) => response.json())
-            .then((data) => { console.log(data) });
+            .then((data) => {
+                console.log(data);
+            });
         event.target.reset()
     }
 

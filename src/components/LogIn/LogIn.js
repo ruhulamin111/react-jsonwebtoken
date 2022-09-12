@@ -22,7 +22,7 @@ const LogIn = () => {
             headers: { 'Content-type': 'application/json' },
         })
             .then((response) => response.json())
-            .then((data) => { console.log(data) });
+            .then((data) => { localStorage.setItem('token', data.token) });
         navigate(from, { replace: true })
     }
 
