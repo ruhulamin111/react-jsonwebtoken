@@ -7,15 +7,13 @@ const AddProduct = () => {
         const price = event.target.price.value;
         const image = event.target.image.value;
 
-        fetch(`http://localhost:5000/products`, {
+        fetch('http://localhost:5000/products', {
             method: 'POST',
             body: JSON.stringify({ name, price, image }),
             headers: { 'Content-type': 'application/json' },
         })
             .then((response) => response.json())
-            .then((data) => {
-                console.log(data)
-            });
+            .then((data) => { console.log(data) });
         event.target.reset()
     }
 

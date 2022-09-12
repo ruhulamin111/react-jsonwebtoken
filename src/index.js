@@ -9,13 +9,13 @@ import { ThemeProvider } from "@material-tailwind/react";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <ThemeProvider>
-    <BrowserRouter>
+  <BrowserRouter>
+    <ThemeProvider>
       <React.StrictMode>
         <App />
       </React.StrictMode>
-    </BrowserRouter>
-  </ThemeProvider>
+    </ThemeProvider>
+  </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function
