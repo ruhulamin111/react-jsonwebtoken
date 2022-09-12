@@ -5,7 +5,7 @@ import { Button } from '@material-tailwind/react';
 
 
 const LogIn = () => {
-    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    const [signInWithGoogle] = useSignInWithGoogle(auth);
     const handleGoogle = () => {
         signInWithGoogle()
     }
